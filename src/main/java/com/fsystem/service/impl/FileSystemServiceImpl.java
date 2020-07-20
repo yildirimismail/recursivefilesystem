@@ -104,7 +104,7 @@ public class FileSystemServiceImpl implements FileSystemService {
     }
 
     public void connectFilesToTheParentFolder(Node rootFolder) {
-        List<File> fileList = fileRepository.findFolderByFolderId(rootFolder.getFolderId());
+        List<File> fileList = fileRepository.findFilesByFolderId(rootFolder.getFolderId());
         for (File file : fileList) {
             Node node = new Node(file.getName(), file.getId(), 2);
             rootFolder.addNeighbor(rootFolder, node);

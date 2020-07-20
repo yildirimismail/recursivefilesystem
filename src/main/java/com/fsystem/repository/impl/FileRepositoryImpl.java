@@ -12,7 +12,7 @@ import java.util.List;
 public class FileRepositoryImpl extends HibernateRepositorySupport<File, Integer> implements FileRepository {
     @Override
     @SuppressWarnings(value = "unchecked")
-    public List<File> findFolderByFolderId(Integer folderId) {
+    public List<File> findFilesByFolderId(Integer folderId) {
         return getCurrentSession().createCriteria(File.class)
                 .add(Restrictions.eq("parentFolder.id",folderId)).list();
     }

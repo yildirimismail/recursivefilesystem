@@ -1,6 +1,6 @@
 package com.fsystem.repository;
 
-import com.fsystem.entity.File;
+import com.fsystem.domain.entity.File;
 import com.fsystem.hibernate.helper.HibernateRepository;
 
 import java.util.List;

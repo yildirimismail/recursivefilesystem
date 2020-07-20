@@ -1,6 +1,6 @@
-package com.fsystem.dto;
+package com.fsystem.domain.dto;
 
-public class FolderDTO {
+public class FileDTO {
     private int id;
     private String name;
     private Integer folderId;

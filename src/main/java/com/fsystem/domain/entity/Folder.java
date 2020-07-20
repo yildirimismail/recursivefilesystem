@@ -1,11 +1,10 @@
-package com.fsystem.entity;
+package com.fsystem.domain.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "file", catalog = "fsystem")
-public class File {
+@Table(name = "folder", catalog = "fsystem")
+public class Folder {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,8 +14,8 @@ public class File {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FOLDER_ID", referencedColumnName = "ID", nullable = false)
-    private Folder folder;
+    @JoinColumn(name = "FOLDER_ID", referencedColumnName = "ID")
+    private Folder parentFolder;
 
     public Integer getId() {
         return id;
@@ -34,11 +33,11 @@ public class File {
         this.name = name;
     }
 
-    public Folder getFolder() {
-        return folder;
+    public Folder getParentFolder() {
+        return parentFolder;
     }
 
-    public void setFolder(Folder folder) {
-        this.folder = folder;
+    public void setParentFolder(Folder parentFolder) {
+        this.parentFolder = parentFolder;
     }
 }

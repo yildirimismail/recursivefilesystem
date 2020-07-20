@@ -11,7 +11,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <array>
-                <value>com.fsystem.entity</value>
+                <value>com.fsystem.domain.entity</value>
             </array>
         </property>
         <!--<property name="cacheRegionFactory" ref="regionFactory"/>-->

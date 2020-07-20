@@ -1,10 +1,16 @@
 package com.fsystem.hibernate;
 
+import org.flywaydb.core.Flyway;
+import org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 
+import javax.annotation.PostConstruct;
 import java.util.Properties;
 
 /**
@@ -72,7 +78,19 @@ public class HibernatePropertiesConfiguration {
 
     @Value("${hibernate.hbm2ddl.auto:#{null}}")
     private String hibernate_create;
+    @Value("${spring.flyway.baseline-on-migrate:#{null}}")
+    private String baseline_on_migrate;
 
+    @Value("${flyway.user:#{null}}")
+    private String flywayuser;
+    @Value("${flyway.password:#{null}}")
+    private String flywaypassword;
+    @Value("${flyway.schemas:#{null}}")
+    private String flywayschemas;
+    @Value("${flyway.url:#{null}}")
+    private String flywayurl;
+    @Value("${flyway.locations:#{null}}")
+    private String flywaylocations;
 
     @Bean(name = "hibernateProperties")
     public Properties hibernateProperties() {
@@ -85,6 +103,13 @@ public class HibernatePropertiesConfiguration {
         props.put("hibernate.use_sql_comments", hibernate_use_sql_comments);
         props.put("hibernate.autoReconnect", hibernate_autoReconnect);
         props.put("hibernate.hbm2ddl.auto", hibernate_create);
+        props.put("spring.flyway.baseline-on-migrate", baseline_on_migrate);
+        props.put("flyway.user", flywayuser);
+        props.put("flyway.password", flywaypassword);
+        props.put("flyway.schemas", flywayschemas);
+        props.put("flyway.url", flywayurl);
+
+        props.put("flyway.locations", flywaylocations);
 
         if (StringUtils.hasText(hibernate_connection_datasource)) {
             props.put("hibernate.connection.datasource", hibernate_connection_datasource);

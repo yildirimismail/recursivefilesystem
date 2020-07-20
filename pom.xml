@@ -163,14 +163,6 @@
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>6.5.1</version>
-				<configuration>
-					<url>jdbc:mysql://localhost:3306/fsystem</url>
-					<user>root</user>
-					<password>123qwe123</password>
-					<locations>
-						<location>classpath:db/migration</location>
-					</locations>
-				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>mysql</groupId>

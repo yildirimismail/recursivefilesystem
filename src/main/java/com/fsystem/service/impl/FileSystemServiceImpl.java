@@ -71,9 +71,15 @@ public class FileSystemServiceImpl implements FileSystemService {
 
     @Override
     public TreeNode fillTreeComponent(Node root, TreeNode treeNode) {
+        TreeNode node1;
+        if (root.getParentNode() == null){
+             node1 = new DefaultTreeNode(root.getValue(),treeNode);
+        }else {
+            node1 = treeNode;
+        }
         if (root.getNeighbors() != null && root.getNeighbors().size() > 0) {
             for (Node node : root.getNeighbors()) {
-                TreeNode newRoot = new DefaultTreeNode(node.getValue(), treeNode);
+                TreeNode newRoot = new DefaultTreeNode(node.getValue(), node1);
                 fillTreeComponent(node, newRoot);
             }
         }

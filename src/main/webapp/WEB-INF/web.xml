@@ -20,7 +20,7 @@
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>com.fsystem.scope.BackofficeContextListener</listener-class>
+		<listener-class>com.fsystem.scope.ContextListener</listener-class>
 	</listener>
 
 	<filter>

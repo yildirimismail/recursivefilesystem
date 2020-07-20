@@ -3,7 +3,7 @@ package com.fsystem.scope;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-public class BackofficeContextListener implements ServletContextListener {
+public class ContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {

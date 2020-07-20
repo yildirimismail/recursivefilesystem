@@ -84,7 +84,7 @@ public class FileSystemServiceImpl implements FileSystemService {
         if (folderList.size() > 0) {
             try {
                 for (Node rootFolder : folderList) {
-                    addRelationToTheParentFolder(rootFolder);
+                    connectFilesToTheParentFolder(rootFolder);
                     List<Folder> subFolders = folderRepository.findFoldersByFolderId(rootFolder.getFolderId());
                     List<Node> nodes = new ArrayList<>();
                     if (!subFolders.isEmpty()) {
@@ -103,7 +103,7 @@ public class FileSystemServiceImpl implements FileSystemService {
         }
     }
 
-    public void addRelationToTheParentFolder(Node rootFolder) {
+    public void connectFilesToTheParentFolder(Node rootFolder) {
         List<File> fileList = fileRepository.findFolderByFolderId(rootFolder.getFolderId());
         for (File file : fileList) {
             Node node = new Node(file.getName(), file.getId(), 2);

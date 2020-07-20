@@ -11,12 +11,6 @@
 	<h:form id="frm">
 		<p:inputText value="#{fileSystemBean.value}"/>
 		<p:commandButton actionListener="#{fileSystemBean.search}" value="search" update="frm, nodes"/>
-
-		<p:tree value="#{fileSystemBean.treeNode}" var="node">
-			<p:treeNode>
-				<h:outputText value="#{node}" />
-			</p:treeNode>
-		</p:tree>
 		<p:dataTable id="nodes" var="list" value="#{fileSystemBean.nodeList}"
 					 reflow="true" emptyMessage="No Record Found"
 					 paginator="true" rows="20"  style="font-size:14px; width: 1200px">
@@ -24,6 +18,13 @@
 				<h:outputText value="#{list.path}"/>
 			</p:column>
 		</p:dataTable>
+	</h:form>
+	<h:form>
+		<p:tree value="#{fileSystemBean.treeNode}" var="node">
+			<p:treeNode>
+				<h:outputText value="#{node}" />
+			</p:treeNode>
+		</p:tree>
 	</h:form>
 </h:body>
 </html>

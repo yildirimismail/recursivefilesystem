@@ -50,6 +50,7 @@
           <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.1" />
           <element id="library" level="project" name="Maven: org.glassfish.web:el-impl:2.2" />
           <element id="library" level="project" name="Maven: javax.el:el-api:2.2" />
+          <element id="library" level="project" name="Maven: org.flywaydb:flyway-core:6.5.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
